@@ -1,0 +1,19 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+{% block title %}Index{% endblock %}
+
+{% block body %}
+
+    <p>Are you sure to want ot delete {{item}} ?</p>
+
+    <form action="{% url 'delete_issue' item.id %}" method="POST">
+        {% csrf_token %}
+
+        <a href="{% url 'home' %}">Cancel</a>
+
+        <input type="submit" name="confirm">
+
+    </form>
+
+
+{% endblock body %}

@@ -1,0 +1,23 @@
+{% extends "myapp/base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block body %}
+    <h1>User Settings Profile</h1>
+
+
+    <a class="btn btn-warning" href="{% url 'home' %}"> &#8592; Back To Profile</a>
+    <hr>
+    <h3 >Account Settings</h3>
+    <hr>
+    <img class="profile_pic" src="{{request.user.customer.profile_pic.url}}"> <!-- profile_pic is  an attribute in our Customer DB in models.py -->
+
+
+    <form method="POST" action="" enctype="multipart/form-data"> <!-- encryption is required because we are passing image -->
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-primary" type="submit" name="Update Information">
+    </form>
+
+
+{% endblock body %}

@@ -1,0 +1,20 @@
+{% extends "myapp/base.html" %}
+{% load static %}
+{% block title %}Index{% endblock %}
+
+{% block body %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        {{ formset.management_form }}
+            {% for form in formset %}
+                {{form}}
+                <hr>
+            {% endfor %}
+
+        <input type="submit" name="submit">
+
+    </form>
+
+{% endblock body %}

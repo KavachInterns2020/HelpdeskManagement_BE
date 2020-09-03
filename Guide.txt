@@ -1,0 +1,6 @@
+django project name: myproject
+django app name: myapp
+
+SuperUser:
+admin username: kavach
+admin password: kavach
